@@ -5,3 +5,27 @@
  * Learn more about Gradle by exploring our Samples at https://docs.gradle.org/9.3.1/samples
  * This project uses @Incubating APIs which are subject to change.
  */
+
+plugins {
+    // 1. Плагины всегда идут первыми
+    kotlin("jvm") version "2.0.21" 
+    application
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Здесь ты будешь добавлять библиотеки, если понадобятся
+}
+
+// 2. Настройка приложения (должна быть ниже плагинов)
+application {
+    mainClass.set("com.andrew.mygame.MainKt")
+}
+
+// 3. Настройка компиляции (необязательно, но полезно для новых версий)
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = "17"
+}
